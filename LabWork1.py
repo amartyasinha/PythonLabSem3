@@ -19,6 +19,7 @@ def side_verification(a, b, c):
 def usr_input():
     side1, side2, side3 = 0, 0, 0
     data_type_verify = False
+
     while not data_type_verify:
         side1 = input("Enter first side: ")
         try:
