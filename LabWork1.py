@@ -1,12 +1,16 @@
-"""1.Write a function that takes the lengths of three sides: side1, side2 and side3 of the triangle as the
-input from the user using input function and return the area and perimeter of the triangle as a tuple. Also,
-assert that sum of the length of any two sides is greater than the third side"""
+"""1. Write a function that takes the lengths of three sides: side1, side2 and side3 of the triangle as the input from
+the user using input function and return the area and perimeter of the triangle as a tuple. Also, assert that sum of
+the length of any two sides is greater than the third side"""
 
 
 def triangle_area(a, b, c):
     s = (a + b + c) / 2
     area = (s * (s - a) * (s - b) * (s - c)) ** 0.5
     return area
+
+
+def triangle_perimeter(a, b, c):
+    return a + b + c
 
 
 def side_verification(a, b, c):
@@ -47,9 +51,10 @@ def usr_input():
             print("Enter Numeric value only")
 
     if side_verification(side1, side2, side3):
-        print("The required area is %0.2f sq. units" % triangle_area(side1, side2, side3))
+        print("\nThe required area is %0.2f sq. units" % triangle_area(side1, side2, side3))
+        print("The required perimeter is {0} units".format(triangle_perimeter(side1, side2, side3)))
     else:
-        print("Sides are not correct")
+        print("\nSides are not correct")
 
 
 if __name__ == "__main__":
