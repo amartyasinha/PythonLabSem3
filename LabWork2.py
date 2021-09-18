@@ -31,7 +31,7 @@ def salesman(sales_per_week):
     print("Remarks     :", remarks)
 
 
-def usr_input():
+def main():
     n = int(input("Enter the number of salesman : "))
 
     for i in range(n):
@@ -41,4 +41,4 @@ def usr_input():
 
 
 if __name__ == "__main__":
-    usr_input()
+    main()

@@ -9,14 +9,17 @@ from LabWork3 import factorial
 def series_sum(x, n):
     store = 1
     for i in range(1, n):
-        power = 2 * i
-        store += ((x ** power) / factorial(power)) * ((-1) ** i)
+        store += ((x ** (2 * i)) / factorial(2 * i)) * ((-1) ** i)
     return store
 
 
 def main():
-    x = int(input("Enter the value of x : "))
-    n = int(input("Enter the value of n : "))
+    print("""This program is to calculate the sum of the following series
+                1–x^2/2!+x^4/4!–x^6/6!+...x^n/n!""")
+    x = int(input("Enter x : "))
+    n = int(input("Enter n : "))
+    assert(x > 0 and n > 0), "Cannot take Negative Input"
+
     print("The sum of the series is : ", series_sum(x, n))
 
 

@@ -13,14 +13,7 @@ def triangle_perimeter(a, b, c):
     return a + b + c
 
 
-def side_verification(a, b, c):
-    if a + b >= c and b + c >= a and c + a >= b:
-        return True
-    else:
-        return False
-
-
-def usr_input():
+def main():
     side1, side2, side3 = 0, 0, 0
     data_type_verify = False
 
@@ -50,12 +43,11 @@ def usr_input():
         except:
             print("Enter Numeric value only")
 
-    if side_verification(side1, side2, side3):
-        print("\nThe required area is %0.2f sq. units" % triangle_area(side1, side2, side3))
-        print("The required perimeter is {0} units".format(triangle_perimeter(side1, side2, side3)))
-    else:
-        print("\nSides are not correct")
+    assert(side1 + side2 >= side3 and side2 + side3 >= side1 and side3 + side1 >= side2), "Sides are not correct"
+
+    print("\nThe required area is %0.2f sq. units" % triangle_area(side1, side2, side3))
+    print("The required perimeter is {0} units".format(triangle_perimeter(side1, side2, side3)))
 
 
 if __name__ == "__main__":
-    usr_input()
+    main()

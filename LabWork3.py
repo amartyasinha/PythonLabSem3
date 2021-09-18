@@ -13,7 +13,9 @@ def fibonacci(n):
 
 
 def factorial(n):
-    if n == 0 or n == 1:
+    if n < 0:
+        print("Wrong Input")
+    elif n == 0 or n == 1:
         return 1
     else:
         return n * factorial(n - 1)
@@ -31,7 +33,7 @@ def ordinal(number):
 
 
 def main():
-    number = int(input("Enter the number : "))
+    number = int(input("Enter the positive number : "))
     term = fibonacci(number)
 
     print("\nThe {0}{1} number in the Fibonacci sequence is {2}".format(number, ordinal(number), fibonacci(number)))
