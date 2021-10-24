@@ -2,20 +2,24 @@
 
 
 def digits(n):
-    a = str(n)
-    for i in a:
-        print(i, end=", ")
+    digit_set = set()
+
+    while n != 0:
+        digit = n % 10
+        digit_set.add(digit)
+        n //= 10
+
+    return digit_set
 
 
 def main():
     while True:
-        number = int(input("Enter a number : "))
+        number = int(input("Enter a number (Greater than 10): "))
         if number >= 10:
             break
 
     print("\nThe digits are ", end="")
-    digits(number)
-    print("\b\b")
+    print(digits(number))
 
 
 if __name__ == "__main__":

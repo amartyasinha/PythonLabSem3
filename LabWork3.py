@@ -21,6 +21,13 @@ def factorial(n):
         return n * factorial(n - 1)
 
 
+def return_fib_fact(n):
+    fib = fibonacci(n)
+    fact = factorial(fib)
+
+    return [fib, fact]
+
+
 def ordinal(number):
     if number == 1:
         return 'st'
@@ -36,8 +43,10 @@ def main():
     number = int(input("Enter the positive number : "))
     term = fibonacci(number)
 
-    print("\nThe {0}{1} number in the Fibonacci sequence is {2}".format(number, ordinal(number), fibonacci(number)))
-    print("The factorial of {0} is {1}".format(fibonacci(number), factorial(term)))
+    [fib, fact] = return_fib_fact(number)
+
+    print("\nThe {0}{1} number in the Fibonacci sequence is {2}".format(number, ordinal(number), fib))
+    print("The factorial of {0} is {1}".format(fibonacci(number), fact))
 
 
 if __name__ == "__main__":

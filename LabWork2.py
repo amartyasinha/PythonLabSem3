@@ -26,9 +26,7 @@ def salesman(sales_per_week):
         remarks = "Work Hard"
         commission = 0
 
-    print("Total Sales : %0.0f" % total_sales)
-    print("Commission  : %0.2f" % commission)
-    print("Remarks     :", remarks)
+    return [total_sales, commission, remarks]
 
 
 def main():
@@ -37,7 +35,11 @@ def main():
     for i in range(n):
         weekly_sales = int(
             input("Enter the Sales done by the salesman per week : "))
-        salesman(weekly_sales)
+        [total_sales, commission, remarks] = salesman(weekly_sales)
+        print("Total Sales : %0.0f" % total_sales)
+        print("Commission  : %0.2f" % commission)
+        print("Remarks     :", remarks)
+        print()
 
 
 if __name__ == "__main__":

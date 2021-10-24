@@ -3,50 +3,25 @@ the user using input function and return the area and perimeter of the triangle 
 the length of any two sides is greater than the third side"""
 
 
-def triangle_area(a, b, c):
-    s = (a + b + c) / 2
+def triangle_area_perimeter(a, b, c):
+    perimeter = a + b + c
+    s = perimeter / 2
     area = (s * (s - a) * (s - b) * (s - c)) ** 0.5
-    return area
-
-
-def triangle_perimeter(a, b, c):
-    return a + b + c
+    return (area, perimeter)
 
 
 def main():
-    side1, side2, side3 = 0, 0, 0
-    data_type_verify = False
+    side1 = float(input("Enter first side: "))
+    side2 = float(input("Enter second side: "))
+    side3 = float(input("Enter third side: "))
 
-    while not data_type_verify:
-        side1 = input("Enter first side: ")
-        try:
-            side1 = float(side1)
-            data_type_verify = True
-        except:
-            print("Enter Numeric value only")
-
-    data_type_verify = False
-    while not data_type_verify:
-        side2 = input("Enter second side: ")
-        try:
-            side2 = float(side2)
-            data_type_verify = True
-        except:
-            print("Enter Numeric value only")
-
-    data_type_verify = False
-    while not data_type_verify:
-        side3 = input("Enter third side: ")
-        try:
-            side3 = float(side3)
-            data_type_verify = True
-        except:
-            print("Enter Numeric value only")
-
-    assert(side1 + side2 >= side3 and side2 + side3 >= side1 and side3 + side1 >= side2), "Sides are not correct"
-
-    print("\nThe required area is %0.2f sq. units" % triangle_area(side1, side2, side3))
-    print("The required perimeter is {0} units".format(triangle_perimeter(side1, side2, side3)))
+    assert (side1 > 0 and side2 > 0 and side3 > 0), "Sides cannot be zero or negative"
+    assert ((side1 + side2) > side3 and (side1 + side3) > side2 and (side2 + side3) > side1), "Sum of any two sides " \
+                                                                                              "of triangle must be " \
+                                                                                              "greater than zero "
+    (area, perimeter) = triangle_area_perimeter(side1, side2, side3)
+    print("Area of the Triangle is {} sq. units".format(area))
+    print("Perimeter of the Triangle is {} units".format(perimeter))
 
 
 if __name__ == "__main__":
