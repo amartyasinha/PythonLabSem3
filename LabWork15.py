@@ -14,14 +14,18 @@ class Student:
         self.avg_marks = sum(self.marks) / len(self.marks)
         return self.avg_marks
 
+def main():
+    name = input("Enter you name: ")
+    marks = []
+    for i in range(3):
+        mrk = int(input("Enter marks {}: ".format(i + 1)))
+        marks.append(mrk)
 
-name = input("Enter you name: ")
-marks = []
-for i in range(3):
-    mrk = int(input("Enter marks {}: ".format(i+1)))
-    marks.append(mrk)
+    stu = Student(name, marks)
+    print("The name of student is", stu.name)
+    print("The marks of the student are", stu.marks)
+    print("Average marks is %0.2f" % stu.avg_marks_fun())
 
-stu = Student(name, marks)
-print("The name of student is", stu.name)
-print("The marks of the student are", stu.marks)
-print("Average marks is %0.2f" % stu.avg_marks_fun())
+
+if __name__ == '__main__':
+    main()
