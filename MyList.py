@@ -21,7 +21,7 @@ def count_odd_values(lst):
     count = 0
 
     for i in lst:
-        if i % 2 != 0:
+        if int(i) % 2 != 0:
             count += 1
 
     return count

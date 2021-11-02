@@ -8,6 +8,10 @@
 # g) Sort the list in descending order.
 # h) accept 2 lists and find the common members in them.
 
+# Note: This program will only work with the latest Python version 3.10 or later as I'm using the latest match case
+# in it
+
+
 from MyList import *
 
 
@@ -32,50 +36,49 @@ def main():
 
         choice = int(input("Enter your Choice:"))
 
-        if choice == 0:
-            quit(0)
+        match choice:
+            case 0:
+                quit(0)
 
-        elif choice == 1:
-            check = check_number_in_list(lst)
-            if check:
-                print("It is a numeric list")
-            else:
-                print("It is a non-numeric list")
+            case 1:
+                check = check_number_in_list(lst)
+                if check:
+                    print("It is a numeric list")
+                else:
+                    print("It is a non-numeric list")
 
-        elif choice == 2:
-            print("The odd values in the list are", count_odd_values(lst))
+            case 2:
+                print("The odd values in the list are", count_odd_values(lst))
 
-        elif choice == 3:
-            print("The largest string in the list is ", display_largest_string(lst))
+            case 3:
+                print("The largest string in the list is ", display_largest_string(lst))
 
-        elif choice == 4:
-            print("The list in reversed form is ", lst_rev(lst))
+            case 4:
+                print("The list in reversed form is ", lst_rev(lst))
 
-        elif choice == 5:
-            ele = input("Enter the element that you want to search:")
+            case 5:
+                ele = input("Enter the element that you want to search:")
+                print(find_element(lst, ele))
 
-            print(find_element(lst, ele))
+            case 6:
+                ele = input("Enter the element that you want to remove:")
+                check = remove_element(lst, ele)
+                if check:
+                    print("{} is removed from the list".format(ele))
+                else:
+                    print("{} not found in the list".format(ele))
 
-        elif choice == 6:
-            ele = input("Enter the element that you want to remove:")
+            case 7:
+                sort_dec(lst)
+                print("The list after sorting in descending order is ", lst)
 
-            check = remove_element(lst, ele)
-            if check:
-                print("{} is removed from the list".format(ele))
-            else:
-                print("{} not found in the list".format(ele))
+            case 8:
+                lst1 = input_list()
+                lst2 = input_list()
+                print("The common members in these lists are ", common_members(lst1, lst2))
 
-        elif choice == 7:
-            sort_dec(lst)
-            print("The list after sorting in descending order is ", lst)
-
-        elif choice == 8:
-            lst1 = input_list()
-            lst2 = input_list()
-
-            print("The common members in these lists are ", common_members(lst1, lst2))
-        else:
-            print("Wrong Choice!")
+            case _:
+                print("Wrong Choice!")
 
 
 if __name__ == '__main__':

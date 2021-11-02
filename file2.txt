@@ -1,0 +1,5 @@
+line1
+line3
+line5
+line7
+last odd line of the file that is line 9
