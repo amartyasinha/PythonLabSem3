@@ -10,18 +10,17 @@ def linear_search(lst, element):
 
 
 def binary_search(lst, element):
-    low = 0
-    high = len(lst) - 1
-
-    while low <= high:
-        mid = (low + high) / 2
+    beg = 0
+    end = len(lst) - 1
+    while beg <= end:
+        mid = (beg + end) // 2
         if lst[mid] == element:
-            return True
-        elif lst[mid] < element:
-            low = mid + 1
-        elif lst[mid] > element:
-            high = mid - 1
-    return False
+            return mid
+        elif element < lst[mid]:
+            end = mid - 1
+        else:
+            beg = mid + 1
+    return -1
 
 
 def bubble_sort(lst):
@@ -37,7 +36,7 @@ def bubble_sort(lst):
 
 
 def insertion_sort(lst):
-    for i in range(1, len(list)):
+    for i in range(1, len(lst)):
         key = lst[i]
         j = i - 1
         while j >= 0 and key < lst[j]:
@@ -58,10 +57,57 @@ def selection_sort(lst):
     return lst
 
 
+def input_list():
+    lst = []
+    ele = '-'
+    while ele != '':
+        ele = input('Enter the name (ENTER to quit): ')
+        if ele != '':
+            lst.append(ele)
+    return lst
+
+
 def main():
-    print("Select your option from the list")
-    print("1. Linear Search\n2. Binary Search\n3. Bubble Sort\n4. Insertion Sort\n5. Selection Sort\n")
-    choice = int(input("Enter you choice: "))
+    choice = 0
+    lst = input_list()
+    while choice != '0':
+        print("Select your option from the list")
+        print("1. Linear Search\n2. Binary Search\n3. Bubble Sort\n4. Insertion Sort\n5. Selection Sort\n6. Exit\n")
+        choice = int(input("Enter you choice: "))
+
+        match choice:
+            case 1:
+                print(lst)
+                key = input('Enter key to search: ')
+                if linear_search(lst, key):
+                    print('{} is found.'.format(key))
+                else:
+                    print('{} is not found.'.format(key))
+
+            case 2:
+                print(lst)
+                key = input('Enter key to search: ')
+                index = binary_search(lst, key)
+                if index != -1:
+                    print('{} is found at index {}.'.format(key, index))
+                else:
+                    print('{} is not found'.format(key))
+            case 3:
+                print('List before sorting: {}'.format(lst))
+                bubble_sort(lst)
+                print('List after sorting: {}'.format(lst))
+            case 4:
+                print('List before sorting: {}'.format(lst))
+                insertion_sort(lst)
+                print('List after sorting: {}'.format(lst))
+            case 5:
+                print('List before sorting: {}'.format(lst))
+                selection_sort(lst)
+                print('List after sorting: {}'.format(lst))
+            case 6:
+                exit(0)
+            case _:
+                print('Invalid choice - please refer to list')
 
 
 if __name__ == '__main__':
