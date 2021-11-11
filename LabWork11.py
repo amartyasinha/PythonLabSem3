@@ -57,20 +57,16 @@ def selection_sort(lst):
     return lst
 
 
-def input_list():
+def main():
     lst = []
     ele = '-'
     while ele != '':
         ele = input('Enter the name (ENTER to quit): ')
         if ele != '':
             lst.append(ele)
-    return lst
+    choice = 1
 
-
-def main():
-    choice = 0
-    lst = input_list()
-    while choice != '0':
+    while choice != 0:
         print("Select your option from the list")
         print("1. Linear Search\n2. Binary Search\n3. Bubble Sort\n4. Insertion Sort\n5. Selection Sort\n6. Exit\n")
         choice = int(input("Enter you choice: "))
@@ -104,7 +100,7 @@ def main():
                 print('List before sorting: {}'.format(lst))
                 selection_sort(lst)
                 print('List after sorting: {}'.format(lst))
-            case 6:
+            case 0:
                 exit(0)
             case _:
                 print('Invalid choice - please refer to list')
