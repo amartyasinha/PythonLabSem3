@@ -64,11 +64,10 @@ def main():
         ele = input('Enter the name (ENTER to quit): ')
         if ele != '':
             lst.append(ele)
-    choice = 1
 
-    while choice != 0:
+    while True:
         print("Select your option from the list")
-        print("1. Linear Search\n2. Binary Search\n3. Bubble Sort\n4. Insertion Sort\n5. Selection Sort\n6. Exit\n")
+        print("0. Exit\n1. Linear Search\n2. Binary Search\n3. Bubble Sort\n4. Insertion Sort\n5. Selection Sort\n")
         choice = int(input("Enter you choice: "))
 
         match choice:

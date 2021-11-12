@@ -3,7 +3,7 @@ created in question 4.
     1–x^2/2!+x^4/4!–x^6/6!+...x^n/n!"""
 
 
-from LabWork3 import factorial
+from LabWork3_FiboFact import factorial
 
 
 def series_sum(x, n):
