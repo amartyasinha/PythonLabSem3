@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 def histogram(lst):
     n_bin = [i for i in range(min(lst), max(lst) + 2)]
-    plt.hist(lst, bins=n_bin, ec='grey')
+    plt.hist(lst, bins=n_bin, ec='grey', color='skyblue')
     plt.xlabel('Age')
     plt.ylabel('Count')
     plt.title('Age Group of your Class')
