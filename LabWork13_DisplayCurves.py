@@ -3,7 +3,7 @@ import numpy as np
 
 
 def sine_curve():
-    x = np.linspace(0, 360, endpoint=False)
+    x = np.linspace(0, 360)
     y = np.sin(np.radians(x))
     plt.plot(x, y)
     plt.xlabel('Degree')
@@ -14,7 +14,7 @@ def sine_curve():
 
 
 def cosine_curve():
-    x = np.linspace(0, 360, endpoint=False)
+    x = np.linspace(0, 360)
     y = np.cos(np.radians(x))
     plt.plot(x, y)
     plt.xlabel('Degree')
@@ -28,10 +28,10 @@ def polynomial_curve():
     size = int(input('Enter Size (2 for linear eq, 3 for quadratic, 4 for cubic, and so on): '))
     coefficients = []
     for i in range(size):
-        coefficients.append(int(input('Enter Coefficient for x^{0}'.format(size-i-1))))
+        coefficients.append(int(input('Enter Coefficient for x^{0}: '.format(size-i-1))))
     print(type(np.array(coefficients)))
     poly_func = np.poly1d(coefficients)
-    x = np.linspace(-10, 10, endpoint=True)
+    x = np.linspace(-10, 10)
     y = poly_func(x)
     plt.plot(x, y)
     plt.xlabel('X Axis')
@@ -43,7 +43,7 @@ def polynomial_curve():
 
 
 def exponential_curve():
-    x = np.linspace(-2, 10, endpoint=False)
+    x = np.linspace(-2, 10)
     y = np.exp(x)
     plt.plot(x, y)
     plt.xlabel('Degree')
