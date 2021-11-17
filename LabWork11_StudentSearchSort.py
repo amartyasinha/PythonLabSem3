@@ -24,31 +24,27 @@ def binary_search(lst, element):
 
 
 def bubble_sort(lst):
-    for i in range(len(lst)):
-        flag = False
-        for j in range(0, len(lst) - i - 1):
+    for i in range(len(lst) - 1):
+        for j in range(len(lst) - i - 1):
             if lst[j] > lst[j + 1]:
                 (lst[j], lst[j + 1]) = (lst[j + 1], lst[j])
-                flag = True
-        if not flag:
-            break
     return list
 
 
 def insertion_sort(lst):
     for i in range(1, len(lst)):
-        key = lst[i]
+        x = lst[i]
         j = i - 1
-        while j >= 0 and key < lst[j]:
+        while j >= 0 and x < lst[j]:
             lst[j + 1] = lst[j]
             j = j - 1
-        lst[j + 1] = key
+        lst[j + 1] = x
     return lst
 
 
 def selection_sort(lst):
     size = len(lst)-1
-    for x in range(0, size):
+    for x in range(size):
         min_idx = x
         for y in range(x+1, size):
             if lst[min_idx] > lst[y]:
@@ -66,7 +62,7 @@ def main():
             lst.append(ele)
 
     while True:
-        print("Select your option from the list")
+        print("Choose your option from the list")
         print("0. Exit\n1. Linear Search\n2. Binary Search\n3. Bubble Sort\n4. Insertion Sort\n5. Selection Sort\n")
         choice = int(input("Enter you choice: "))
 

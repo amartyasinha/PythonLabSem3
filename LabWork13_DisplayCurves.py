@@ -29,7 +29,6 @@ def polynomial_curve():
     coefficients = []
     for i in range(size):
         coefficients.append(int(input('Enter Coefficient for x^{0}: '.format(size-i-1))))
-    print(type(np.array(coefficients)))
     poly_func = np.poly1d(coefficients)
     x = np.linspace(-10, 10)
     y = poly_func(x)
