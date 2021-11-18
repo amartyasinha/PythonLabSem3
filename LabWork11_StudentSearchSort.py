@@ -44,12 +44,12 @@ def insertion_sort(lst):
 
 def selection_sort(lst):
     size = len(lst)-1
-    for x in range(size):
-        min_idx = x
-        for y in range(x+1, size):
-            if lst[min_idx] > lst[y]:
-                min_idx = y
-        (lst[min_idx], lst[x]) = (lst[x], lst[min_idx])
+    for i in range(size):
+        min_idx = i
+        for j in range(i+1, size):
+            if lst[min_idx] > lst[j]:
+                min_idx = j
+        (lst[min_idx], lst[i]) = (lst[i], lst[min_idx])
     return lst
 
 
